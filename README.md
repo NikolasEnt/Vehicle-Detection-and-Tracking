@@ -5,7 +5,7 @@ This Project is the fifth task of the Udacity Self-Driving Car Nanodegree progra
 
 ![Title .gif animation](readme_img/title.gif)
 
-**Resilt:** [video](https://youtu.be/waYJjmkRZfw)
+**Result:** [video](https://youtu.be/waYJjmkRZfw)
 
 ## Content of this repo
 
@@ -113,9 +113,9 @@ As we can see on examples above, the classifier successfully finds cars on the t
 
 - It is important to use different scale of the classifiers window on different parts of the image due to perspective. So, different ROI  window sizes were applied on different areas (realized in the `frame_proc` function).
 
-- In order to reduce jitter the function `filt` applies a simple low-pass filter on the new and the previous cars boxes coordinates and sizes (see under the *Frames processing* header). This makes car boundaries on video quite smooth.
+- In order to reduce jitter the function `filt` applies a simple low-pass filter on the new and the previous cars boxes coordinates and sizes (see under the *Frames processing* header) with weight `ALPHA=0.75` of the previous data. This makes car boundaries on video quite smooth.
 
-- To increase performance the analizys was skiped for every 2nd frame because we do not expect very fast moving of the detected cars. Cars boundaries from the previous frame is used in such cases.
+- To increase performance the analizys was skiped for every 2nd frame because we do not expect very fast moving of the detected cars. Known cars boundaries from the previous frame is used in such cases.
 
 ## The pipeline visualization
 
