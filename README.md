@@ -5,6 +5,8 @@ This Project is the fifth task of the Udacity Self-Driving Car Nanodegree progra
 
 ![Title .gif animation](readme_img/title.gif)
 
+**Resilt:** [video](https://youtu.be/waYJjmkRZfw)
+
 ## Content of this repo
 
 - `VehicheDetect.ipynb` Jupyter notebook with code for the project
@@ -53,7 +55,7 @@ res = gp_minimize(obj, space, n_calls=20, random_state=22)
 "Best score=%.4f" % res.fun
 ```
 
-However, results were not very good because it ended with high numbers for HOG parameters which results in very slow feature extraction with comparable to less computational-expensive parameters set accuracy. That is why the parameters for HOG as well as parameters for othe features extractors were finetuned manually by try and error process so that it optimize accuracy and computation time.
+However, results were not very good because it ended with high numbers for HOG parameters which results in very slow feature extraction with comparable to less computational-expensive parameters set accuracy. That is why, the parameters for HOG as well as parameters for other features extractors were finetuned manually by try and error process so that it optimizes accuracy and computation time.
 
 Here is an example of a train image and its HOG:
 
@@ -71,16 +73,16 @@ spatial_size = (16, 16) # Spatial binning dimensions
 hist_bins = 32    # Number of histogram bins
 ```
 
-Normalizing ensures that your classifier's behavior isn't dominated by just a subset of the features, and that the training process is as efficient as possible. That is why, feature list was normolized by the `StandardScaler()` method from `sklearn`. The data is splitted into thaining and testing subsets (80% and 20%). The classifier is a linear SVM. It was found that it performs well enough and quite fast for the task. The code chunk under *Classifier* represents these operations.
+Normalizing ensures that a classifier's behavior isn't dominated by just a subset of the features, and that the training process is as efficient as possible. That is why, feature list was normolized by the `StandardScaler()` method from `sklearn`. The data is splitted into thaining and testing subsets (80% and 20%). The classifier is a linear SVM. It was found that it performs well enough and quite fast for the task. The code chunk under *Classifier* represents these operations.
 
 
 ## Sliding Window and the classifier testing
 
 Basic sliding window algoritm was implemented in the same way to one presented in Udacity's lectures (See the code chunks under *Slide window* header). It allows to search a car in a desired region of the frame with a desired window size (each subsamled window is rescaled to 64x64 px before classifing by the SVC).
 
-The window size and overlap should be wesely selected. Size of the window should be compared to the size of an expected car. These parameters were set 
+The window size and overlap should be wisely selected. Size of the window should be compared to the size of an expected car. These parameters were set to mimic perspective.
 
-There are some sample results for a fixed window size and overlap for the provided test images:
+There are some sample results for a fixed window size (128x128 px) and overlap for the provided test images:
 
 ![Test image 1](output_images/test1.jpg)
 ![Test image 2](output_images/test2.jpg)
@@ -97,7 +99,7 @@ As we can see on examples above, the classifier successfully finds cars on the t
 
 - To increase the classifier accuracy, feature extraction parameters were tuned. The data was augmented by flipped images.
 
-- To reduce number of false positives a heatmap approach was implemented in the same to the suggested in the lectures way. For video the heatmap is accumulated by two frames which reduce number of outliers false positives.
+- To reduce number of false positives a heatmap with a threshold approach was implemented in the same to the suggested in the lectures way. For video the heatmap is accumulated by two frames which reduces number of outliers false positives.
 
 - To increase performance it is needed to analize the smallest possible number of windows. That is why, one can scan with a search window not across the whole image, but only areas where a new car can appear and also we are going to scan areas where a car was detected (track cars) 
 
@@ -132,11 +134,11 @@ The final result of an image with cars boundaries and lane detection.
 
 ## Results and discussion
 
-The pipeline is able to correctly lable car areas on a video frames. The final video is [here](https://github.com/NikolasEnt/Vehicle-Detection-and-Tracking/blob/master/project_video_proc.mp4). The [Advanced Lane Line](https://github.com/NikolasEnt/Advanced-Lane-Lines) finding algorithm was added for the lane marking.
+The pipeline is able to correctly lable cars areas on a video frames. The final video is [here](https://github.com/NikolasEnt/Vehicle-Detection-and-Tracking/blob/master/project_video_proc.mp4). The [Advanced Lane Line](https://github.com/NikolasEnt/Advanced-Lane-Lines) finding algorithm was added for the lane marking.
 
 - Of course, the algorithm may fail in case of difficult light conditions, which could be partly resolved by the classifier improvement.
 
-- It is possible to improve the classifier by additional data augmentation, hard negative mining etc.
+- It is possible to improve the classifier by additional data augmentation, hard negative mining, classifier parameters tuning etc.
 
 - The algorithm may have some problems in case of car overlaps another. To resolve this problem one may introduce long term memory of car position and a kind of predictive algorithm which can predict where occluded car can be and where it is worth to look for it.
 
