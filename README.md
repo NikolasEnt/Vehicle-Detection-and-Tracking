@@ -9,10 +9,10 @@ This Project is the fifth task of the Udacity Self-Driving Car Nanodegree progra
 
 ## Content of this repo
 
-- `VehicheDetect.ipynb` Jupyter notebook with code for the project
-- `laneline.py` python program for lane line detection from the project 4.
-- `test_images` a directory with test images
-- `camera_cal` a directory with camera calibration images from the project 4.
+- `VehicheDetect.ipynb` - Jupyter notebook with code for the project
+- `laneline.py` - python program for lane line detection from the [project 4](https://github.com/NikolasEnt/Advanced-Lane-Lines).
+- `test_images` - a directory with test images
+- `camera_cal` - a directory with camera calibration images from the [project 4](https://github.com/NikolasEnt/Advanced-Lane-Lines).
 - `project_video_proc.mp4` - the result video
 - `project_video.mp4` - the original raw video from [Udacity](https://github.com/udacity/CarND-Vehicle-Detection)
 
@@ -91,11 +91,11 @@ There are some sample results for a fixed window size (128x128 px) and overlap f
 ![Test image 5](output_images/test5.jpg)
 ![Test image 6](output_images/test6.jpg)
 
-
-
 As we can see on examples above, the classifier successfully finds cars on the test images. However, there is a false positive example, so, we will need to apply a kind of filter (such as heat map) and the classifier failed to find a car on th 3rd image because it is too small for it. That is why, we will need to use multi scale windows.
 
 ### Implemented ideas:
+
+- Images were preprocessed by undistortion process from the [Advanced Lane Line](https://github.com/NikolasEnt/Advanced-Lane-Lines) finding project
 
 - To increase the classifier accuracy, feature extraction parameters were tuned. The data was augmented by flipped images.
 
@@ -144,4 +144,4 @@ The pipeline is able to correctly lable cars areas on a video frames. The final 
 
 - To eliminate false positives on areas out of the road, one can deeply combine results from the Advanced Lane Line finding project to correctly determine the wide ROI on the whole frame by the road boundaries. Unfortunately, it was not correctly implemented (just hard coded, which is enought for the project but not a good implementation for a real-world application) due to time limitation.
 
-- The pipeline is not a real-time (about 4 fps with Lane line detection, which independently performs at 9 fps). One can further optimize number of features and feature extraction parameters as well as number of analyzed windows to increase the rate.  
+- The pipeline is not a real-time (about 4 fps with Lane line detection, which independently performs at 9 fps). One can further optimize number of features and feature extraction parameters as well as number of analyzed windows to increase the rate because lane line detection is quite fast.  
