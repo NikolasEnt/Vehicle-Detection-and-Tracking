@@ -7,6 +7,8 @@ This Project is the fifth task of the Udacity Self-Driving Car Nanodegree progra
 
 **Result:** [video](https://youtu.be/waYJjmkRZfw)
 
+For details on this and other projects, see my [website](https://nikolasent.github.io/proj/proj2)
+
 ## Content of this repo
 
 - `VehicheDetect.ipynb` - Jupyter notebook with code for the project
@@ -15,6 +17,9 @@ This Project is the fifth task of the Udacity Self-Driving Car Nanodegree progra
 - `camera_cal` - a directory with camera calibration images from the [project 4](https://github.com/NikolasEnt/Advanced-Lane-Lines).
 - `project_video_proc.mp4` - the result video
 - `project_video.mp4` - the original raw video from [Udacity](https://github.com/udacity/CarND-Vehicle-Detection)
+
+You have to download and unzip the training image datasets of vehicles and non-vehicles provided by Udacity and place them in appropriate directories on your own.
+Please, see links under "Data loading" header in the [VehicheDetect.ipynb](./VehicheDetect.ipynb) notebook.
 
 ## Classifier
 
