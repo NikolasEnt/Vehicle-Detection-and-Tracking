@@ -18,7 +18,7 @@ For details on this and other projects, see my [website](https://nikolasent.gith
 - `project_video_proc.mp4` - the result video
 - `project_video.mp4` - the original raw video from [Udacity](https://github.com/udacity/CarND-Vehicle-Detection)
 
-You have to download and unzip the training image datasets of vehicles and non-vehicles provided by Udacity and place them in appropriate directories on your own.
+**Note:** The repository does not contain any training images. You have to download and unzip the image datasets of vehicles and non-vehicles provided by Udacity and place them in appropriate directories on your own.
 Please, see links under "Data loading" header in the [VehicheDetect.ipynb](./VehicheDetect.ipynb) notebook.
 
 ## Classifier
